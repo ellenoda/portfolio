@@ -3,635 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ellen Noda — Data Analyst</title>
+  <title>Ellen Noda — Data Analyst & Presentation Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #F7F5F2;
-      --surface: #FFFFFF;
-      --ink: #1A1A18;
-      --ink-soft: #5A5A56;
-      --ink-muted: #9A9A94;
-      --accent: #C17A5A;
-      --accent-light: #E8D5C8;
-      --accent-pale: #F5EDE6;
-      --teal: #4A7C7E;
-      --teal-light: #D0E4E5;
-      --border: #E8E4DE;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --radius: 3px;
-      --radius-lg: 8px;
+      --bg: #F7F5F2; --surface: #FFFFFF; --ink: #1A1A18; --ink-soft: #5A5A56; --ink-muted: #9A9A94;
+      --accent: #C17A5A; --accent-light: #E8D5C8; --accent-pale: #F5EDE6;
+      --teal: #4A7C7E; --teal-light: #D0E4E5; --border: #E8E4DE;
+      --serif: 'DM Serif Display', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+      --radius: 3px; --radius-lg: 8px;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247,245,242,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px; }
+    .nav-logo { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 80px clamp(1.5rem, 5vw, 4rem) 0;
-      gap: 4rem;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 80px clamp(1.5rem, 5vw, 4rem) 0; gap: 4rem; max-width: 1280px; margin: 0 auto; }
     .hero-text { padding: 4rem 0; }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--accent);
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      max-width: 420px;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--ink);
-      color: #fff;
-      padding: 0.85rem 2rem;
-      border: none;
-      border-radius: var(--radius);
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+    .hero h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc { font-size: 1.05rem; color: var(--ink-soft); max-width: 420px; line-height: 1.75; margin-bottom: 2.5rem; font-weight: 300; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--ink); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: var(--radius); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      padding: 0.85rem 2rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .btn-secondary { background: transparent; color: var(--ink); padding: 0.85rem 2rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .hero-visual {
-      position: relative;
-      height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-card-main {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      width: 320px;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.07);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-    .card-tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-pale);
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .card-label {
-      font-size: 0.75rem;
-      color: var(--ink-muted);
-      font-weight: 400;
-      margin-bottom: 0.25rem;
-    }
-    .card-value {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-    }
-    .mini-bars {
-      display: flex;
-      gap: 5px;
-      align-items: flex-end;
-      height: 48px;
-      margin-top: 0.5rem;
-    }
-    .mini-bar {
-      flex: 1;
-      border-radius: 2px;
-      background: var(--accent-light);
-      transition: background 0.2s;
-    }
+    .hero-visual { position: relative; height: 560px; display: flex; align-items: center; justify-content: center; }
+    .hero-card-main { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; width: 320px; box-shadow: 0 4px 40px rgba(0,0,0,0.07); position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; }
+    .card-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.75rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem; }
+    .card-label { font-size: 0.75rem; color: var(--ink-muted); font-weight: 400; margin-bottom: 0.25rem; }
+    .card-value { font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: 1.25rem; }
+    .mini-bars { display: flex; gap: 5px; align-items: flex-end; height: 48px; margin-top: 0.5rem; }
+    .mini-bar { flex: 1; border-radius: 2px; background: var(--accent-light); }
     .mini-bar.active { background: var(--accent); }
-    .hero-card-float {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      position: absolute;
-    }
+    .hero-card-float { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: absolute; }
     .float-1 { top: 3rem; right: 1rem; width: 180px; }
     .float-2 { bottom: 3rem; left: 0; width: 200px; }
-    .float-metric {
-      font-family: var(--serif);
-      font-size: 2rem;
-      color: var(--teal);
-      line-height: 1;
-    }
+    .float-metric { font-family: var(--serif); font-size: 2rem; color: var(--teal); line-height: 1; }
     .float-desc { font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.25rem; }
     .donut-wrap { display: flex; align-items: center; gap: 0.75rem; }
     .donut-svg { width: 44px; height: 44px; flex-shrink: 0; }
     .donut-text { font-size: 0.75rem; color: var(--ink-soft); }
     .donut-pct { font-family: var(--serif); font-size: 1rem; color: var(--teal); }
 
-    /* ── STATS BAR ── */
-    .stats-bar {
-      background: var(--ink);
-      color: #fff;
-      padding: 2rem clamp(1.5rem, 5vw, 4rem);
-    }
-    .stats-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--accent-light);
-      line-height: 1;
-    }
+    .stats-bar { background: var(--ink); color: #fff; padding: 2rem clamp(1.5rem, 5vw, 4rem); }
+    .stats-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 3rem; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+    .stat-num { font-family: var(--serif); font-size: 2.5rem; color: var(--accent-light); line-height: 1; }
     .stat-lbl { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.35rem; }
 
-    /* ── SECTION COMMONS ── */
     section { padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem); }
     .section-inner { max-width: 1280px; margin: 0 auto; }
     .section-header { margin-bottom: 3.5rem; }
-    .section-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.1;
-      color: var(--ink);
-      max-width: 560px;
-    }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; color: var(--ink); max-width: 560px; }
     .section-title em { font-style: italic; color: var(--accent); }
-    .section-subtitle {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      max-width: 480px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: var(--accent);
-      margin: 1.5rem 0;
-    }
+    .section-subtitle { margin-top: 1rem; font-size: 0.95rem; color: var(--ink-soft); max-width: 480px; font-weight: 300; line-height: 1.7; }
+    .divider { width: 40px; height: 2px; background: var(--accent); margin: 1.5rem 0; }
 
-    /* ── SERVICES ── */
     #services { background: var(--surface); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .service-card {
-      background: var(--surface);
-      padding: 2.5rem;
-      transition: background 0.25s;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .service-card { background: var(--surface); padding: 2.5rem; transition: background 0.25s; }
     .service-card:hover { background: var(--accent-pale); }
-    .service-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius);
-      background: var(--accent-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    .service-title {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-    }
+    .service-icon { width: 40px; height: 40px; border-radius: var(--radius); background: var(--accent-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .service-title { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin-bottom: 0.75rem; }
     .service-desc { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.7; font-weight: 300; }
-    .service-tools {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .pill {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      background: var(--teal-light);
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-    }
+    .service-tools { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); background: var(--teal-light); padding: 0.25rem 0.65rem; border-radius: 999px; }
 
-    /* ── PROJECTS ── */
     #projects { background: var(--bg); }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
-    }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; cursor: pointer; }
     .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.09); }
-    .project-thumb {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      background: var(--accent-pale);
-    }
-    .project-thumb-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--accent-pale) 0%, var(--teal-light) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .project-thumb { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .project-thumb-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, var(--accent-pale) 0%, var(--teal-light) 100%); display: flex; align-items: center; justify-content: center; }
     .thumb-icon { font-size: 2.5rem; opacity: 0.6; }
     .project-body { padding: 1.75rem; }
-    .project-category {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .project-name {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--ink);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
+    .project-category { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .project-name { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.3; }
     .project-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; }
-    .project-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .project-meta { display: flex; align-items: center; justify-content: space-between; }
     .project-tools { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .project-link {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s;
-      white-space: nowrap;
-    }
+    .project-link { font-size: 0.75rem; font-weight: 500; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; white-space: nowrap; }
     .project-link:hover { gap: 0.5rem; }
 
-    /* ── PROCESS ── */
-    #process { background: var(--surface); }
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0;
-      position: relative;
-      counter-reset: step;
-    }
-    .process-step {
-      padding: 2rem;
-      position: relative;
-      counter-increment: step;
-    }
-    .process-step::before {
-      content: counter(step, decimal-leading-zero);
-      font-family: var(--serif);
-      font-size: 3.5rem;
-      color: var(--border);
-      display: block;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .process-step-title {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-    .process-step-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; }
-    .process-connector {
-      position: absolute;
-      top: 2.5rem;
-      right: 0;
-      width: 1px;
-      height: 2rem;
-      background: var(--border);
-    }
+    /* PRESENTATIONS */
+    #presentations { background: var(--surface); }
+    .pres-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
+    .pres-service-card { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+    .pres-service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.09); }
+    .pres-cover { width: 100%; height: 190px; object-fit: cover; display: block; }
+    .pres-service-body { padding: 1.5rem; background: var(--surface); }
+    .pres-service-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .pres-service-title { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
+    .pres-service-desc { font-size: 0.83rem; color: var(--ink-soft); font-weight: 300; line-height: 1.65; }
 
-    /* ── ABOUT ── */
-    #about { background: var(--bg); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-photo-frame {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(145deg, var(--accent-pale), var(--teal-light));
-      border-radius: var(--radius-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    .about-photo-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C17A5A' fill-opacity='0.08'%3E%3Ccircle cx='2' cy='2' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .about-photo-label {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: var(--surface);
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
+    .gallery-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1.25rem; display: block; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .gallery-item { border-radius: var(--radius-lg); overflow: hidden; position: relative; cursor: pointer; aspect-ratio: 16/10; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(26,26,24,0); transition: background 0.3s; display: flex; align-items: flex-end; padding: 1rem; }
+    .gallery-item:hover .gallery-overlay { background: rgba(26,26,24,0.45); }
+    .gallery-caption { font-size: 0.75rem; font-weight: 500; color: #fff; opacity: 0; transform: translateY(6px); transition: all 0.3s; letter-spacing: 0.05em; }
+    .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: var(--radius-lg); }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; color: #fff; font-size: 2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; background: none; border: none; font-family: var(--sans); }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-size: 2.5rem; cursor: pointer; opacity: 0.6; transition: opacity 0.2s; background: none; border: none; padding: 1rem; }
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    #process { background: var(--bg); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); counter-reset: step; }
+    .process-step { padding: 2rem; counter-increment: step; }
+    .process-step::before { content: counter(step, decimal-leading-zero); font-family: var(--serif); font-size: 3.5rem; color: var(--border); display: block; line-height: 1; margin-bottom: 1rem; }
+    .process-step-title { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .process-step-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; }
+
+    #about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-photo-frame { width: 100%; aspect-ratio: 4/5; background: linear-gradient(145deg, var(--accent-pale), var(--teal-light)); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+    .about-photo-frame::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C17A5A' fill-opacity='0.08'%3E%3Ccircle cx='2' cy='2' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .about-photo-label { position: absolute; bottom: 1.5rem; left: 1.5rem; background: var(--surface); padding: 1rem 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); }
     .about-photo-name { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); }
     .about-photo-role { font-size: 0.75rem; color: var(--accent); font-weight: 500; margin-top: 0.2rem; }
-    .about-content h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.75rem);
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
+    .about-content h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.75rem); color: var(--ink); line-height: 1.15; margin-bottom: 1.5rem; }
     .about-content h2 em { font-style: italic; color: var(--accent); }
-    .about-content p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 1rem;
-    }
-    .skills-list {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-    }
+    .about-content p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+    .skills-list { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .skill-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
     .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-    /* ── CONTACT ── */
     #contact { background: var(--ink); }
-    .contact-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .contact-text h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
+    .contact-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .contact-text h2 { font-family: var(--serif); font-size: clamp(2.5rem, 4vw, 4rem); color: #fff; line-height: 1.1; margin-bottom: 1.5rem; }
     .contact-text h2 em { font-style: italic; color: var(--accent-light); }
     .contact-text p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.75; font-weight: 300; }
     .contact-links { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
-    .contact-link-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: #fff;
-      font-size: 0.875rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
+    .contact-link-row { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); text-decoration: none; color: #fff; font-size: 0.875rem; transition: border-color 0.2s, background 0.2s; }
     .contact-link-row:hover { border-color: var(--accent-light); background: rgba(255,255,255,0.04); }
     .contact-link-icon { font-size: 1.1rem; }
     .contact-link-label { font-weight: 500; }
     .contact-link-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-left: auto; }
-    .contact-form-area {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-    }
+    .contact-form-area { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 2.5rem; }
     .form-group { margin-bottom: 1.25rem; }
     .form-label { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; }
-    .form-input {
-      width: 100%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      padding: 0.85rem 1rem;
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
+    .form-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 0.85rem 1rem; color: #fff; font-family: var(--sans); font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
     .form-input:focus { border-color: var(--accent-light); }
     .form-input::placeholder { color: rgba(255,255,255,0.25); }
     textarea.form-input { resize: vertical; min-height: 100px; }
-    .btn-form {
-      width: 100%;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      padding: 0.95rem;
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
+    .btn-form { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); padding: 0.95rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
     .btn-form:hover { opacity: 0.9; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #111;
-      padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+    footer { background: #111; padding: 1.5rem clamp(1.5rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.5); text-decoration: none; }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
     .fade-up:nth-child(2) { transition-delay: 0.1s; }
     .fade-up:nth-child(3) { transition-delay: 0.2s; }
     .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: unset; padding-top: 96px; }
       .hero-visual { display: none; }
@@ -639,53 +186,43 @@
       .about-visual { display: none; }
       .contact-inner { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .pres-services { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">Ellen Noda</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#projects">Dashboards</a></li>
+      <li><a href="#presentations">Presentations</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-text">
       <p class="hero-eyebrow">Data Analyst · Visual Storyteller</p>
       <h1>Turning data into<br><em>clear stories</em><br>for business</h1>
-      <p class="hero-desc">
-        I help companies understand their data through beautiful, intuitive dashboards and presentations — crafted with a sharp eye for color, hierarchy, and detail.
-      </p>
+      <p class="hero-desc">I help companies understand their data through beautiful dashboards and presentations — crafted with a sharp eye for color, hierarchy, and detail.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
-
     <div class="hero-visual">
-      <!-- Floating card: donut -->
       <div class="hero-card-float float-1 fade-up">
         <div class="donut-wrap">
           <svg class="donut-svg" viewBox="0 0 44 44">
             <circle cx="22" cy="22" r="16" fill="none" stroke="#E8D5C8" stroke-width="5"/>
-            <circle cx="22" cy="22" r="16" fill="none" stroke="#4A7C7E" stroke-width="5"
-              stroke-dasharray="68 32" stroke-dashoffset="25" stroke-linecap="round"/>
+            <circle cx="22" cy="22" r="16" fill="none" stroke="#4A7C7E" stroke-width="5" stroke-dasharray="68 32" stroke-dashoffset="25" stroke-linecap="round"/>
           </svg>
-          <div>
-            <div class="donut-pct">68%</div>
-            <div class="donut-text">Retention<br>improvement</div>
-          </div>
+          <div><div class="donut-pct">68%</div><div class="donut-text">Retention<br>improvement</div></div>
         </div>
       </div>
-
-      <!-- Main card -->
       <div class="hero-card-main fade-up">
         <div class="card-tag">Power BI Report</div>
         <div class="card-label">Total Revenue</div>
@@ -702,39 +239,23 @@
           <div class="mini-bar" style="height:55%"></div>
         </div>
       </div>
-
-      <!-- Floating card: metric -->
       <div class="hero-card-float float-2 fade-up">
-        <div class="float-metric">6+</div>
-        <div class="float-desc">End-to-end dashboards<br>delivered for clients</div>
+        <div class="float-metric">8+</div>
+        <div class="float-desc">End-to-end projects<br>delivered for clients</div>
       </div>
     </div>
   </div>
 
-  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-num">6+</div>
-        <div class="stat-lbl">Projects Completed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-lbl">Tools Mastered</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-lbl">Industries Covered</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">EN · PT</div>
-        <div class="stat-lbl">Languages</div>
-      </div>
-      <a href="#contact" class="btn-secondary" style="color:#fff; border-color:rgba(255,255,255,0.2);">Start a project →</a>
+      <div class="stat-item"><div class="stat-num">8+</div><div class="stat-lbl">Projects Completed</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-lbl">Tools Mastered</div></div>
+      <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Industries Covered</div></div>
+      <div class="stat-item"><div class="stat-num">EN · PT</div><div class="stat-lbl">Languages</div></div>
+      <a href="#contact" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.2);">Start a project →</a>
     </div>
   </div>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="section-inner">
       <div class="section-header">
@@ -742,193 +263,185 @@
         <h2 class="section-title">Data solutions built for <em>clarity</em> and impact</h2>
         <p class="section-subtitle">I combine analytical rigor with design sensibility to deliver work that both informs and impresses.</p>
       </div>
-
       <div class="services-grid">
         <div class="service-card fade-up">
           <div class="service-icon">📊</div>
           <div class="service-title">Interactive Dashboards</div>
           <p class="service-desc">End-to-end dashboard creation with real-time data, harmonious color palettes, and intuitive layouts that make decision-making effortless.</p>
-          <div class="service-tools">
-            <span class="pill">Looker Studio</span>
-            <span class="pill">Power BI</span>
-          </div>
+          <div class="service-tools"><span class="pill">Looker Studio</span><span class="pill">Power BI</span></div>
         </div>
-
         <div class="service-card fade-up">
           <div class="service-icon">🎨</div>
-          <div class="service-title">Business Presentations</div>
-          <p class="service-desc">Data-driven slide decks and visual reports that tell a compelling story — crafted with precise typography, on-brand color systems, and clear information hierarchy.</p>
-          <div class="service-tools">
-            <span class="pill">PowerPoint</span>
-            <span class="pill">Google Slides</span>
-          </div>
+          <div class="service-title">Corporate Presentations</div>
+          <p class="service-desc">Data-driven slide decks built for B2B audiences — on-brand color systems, precise typography, and visual clarity that commands the room.</p>
+          <div class="service-tools"><span class="pill">PowerPoint</span><span class="pill">Google Slides</span></div>
         </div>
-
         <div class="service-card fade-up">
           <div class="service-icon">🔄</div>
           <div class="service-title">Data Cleaning & ETL</div>
           <p class="service-desc">Structuring raw data into clean, reliable pipelines ready for analysis — transforming messy spreadsheets into consistent datasets.</p>
-          <div class="service-tools">
-            <span class="pill">SQL</span>
-            <span class="pill">Python</span>
-            <span class="pill">BigQuery</span>
-          </div>
+          <div class="service-tools"><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">BigQuery</span></div>
         </div>
-
         <div class="service-card fade-up">
           <div class="service-icon">📈</div>
           <div class="service-title">Analytical Reports</div>
-          <p class="service-desc">Deep-dive analyses of business data — segmentation, forecasting, and performance metrics translated into actionable written reports.</p>
-          <div class="service-tools">
-            <span class="pill">Google Colab</span>
-            <span class="pill">Sheets</span>
-          </div>
+          <p class="service-desc">Deep-dive analyses — segmentation, forecasting, and performance metrics translated into actionable written reports.</p>
+          <div class="service-tools"><span class="pill">Google Colab</span><span class="pill">Sheets</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-inner">
       <div class="section-header">
-        <p class="section-eyebrow">Selected Work</p>
+        <p class="section-eyebrow">Dashboards & Analysis</p>
         <h2 class="section-title">Projects that <em>speak</em> through data</h2>
         <div class="divider"></div>
       </div>
-
       <div class="projects-grid">
-
         <div class="project-card fade-up">
-          <img class="project-thumb"
-            src="https://github.com/ellenoda/data-analysis-portfolio/blob/c7903a7285a7cbfb255ce0643de80ba85454e099/finance-ANIMATION.gif?raw=true"
-            alt="Finance Dashboard"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img class="project-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/c7903a7285a7cbfb255ce0643de80ba85454e099/finance-ANIMATION.gif?raw=true" alt="Finance" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="project-thumb-placeholder" style="display:none"><div class="thumb-icon">💼</div></div>
           <div class="project-body">
             <p class="project-category">Finance · Power BI</p>
             <h3 class="project-name">Finance Dashboard</h3>
-            <p class="project-desc">Revenue, expenses, and net profit analysis supporting real-time financial decision-making for business stakeholders.</p>
-            <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">Power BI</span>
-              </div>
-              <a href="https://drive.google.com/file/d/1Me4aUDwu_-nYrVtvWHkeQtvmo7tdczNm/view" target="_blank" class="project-link">
-                Download ↗
-              </a>
-            </div>
+            <p class="project-desc">Revenue, expenses, and net profit analysis supporting real-time financial decision-making.</p>
+            <div class="project-meta"><div class="project-tools"><span class="pill">Power BI</span></div><a href="https://drive.google.com/file/d/1Me4aUDwu_-nYrVtvWHkeQtvmo7tdczNm/view" target="_blank" class="project-link">Download ↗</a></div>
           </div>
         </div>
-
         <div class="project-card fade-up">
-          <img class="project-thumb"
-            src="https://github.com/ellenoda/data-analysis-portfolio/blob/08dec2367d11025c32241f3fd32fa0ee306b5bd9/agrofruit-ANIMATION.gif?raw=true"
-            alt="AgroFruits Dashboard"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img class="project-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/08dec2367d11025c32241f3fd32fa0ee306b5bd9/agrofruit-ANIMATION.gif?raw=true" alt="Agro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="project-thumb-placeholder" style="display:none"><div class="thumb-icon">🍇</div></div>
           <div class="project-body">
             <p class="project-category">Agriculture · Power BI</p>
             <h3 class="project-name">AgroFruits Analytics</h3>
-            <p class="project-desc">Sales data by harvest, fruit type, and region — identifying the most profitable products and guiding inventory decisions.</p>
-            <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">Power BI</span>
-              </div>
-              <a href="https://drive.google.com/file/d/1EXaC9Om9Nypj_OOYdaySfdpfCq33KEeU/view" target="_blank" class="project-link">
-                Download ↗
-              </a>
-            </div>
+            <p class="project-desc">Sales by harvest, fruit type, and region — identifying the most profitable products.</p>
+            <div class="project-meta"><div class="project-tools"><span class="pill">Power BI</span></div><a href="https://drive.google.com/file/d/1EXaC9Om9Nypj_OOYdaySfdpfCq33KEeU/view" target="_blank" class="project-link">Download ↗</a></div>
           </div>
         </div>
-
         <div class="project-card fade-up">
-          <img class="project-thumb"
-            src="https://github.com/ellenoda/data-analysis-portfolio/blob/bcf5e9e334a891fbf2c5756fa20309704bad6caf/turnover_powerbi-ANIMATION.gif?raw=true"
-            alt="Employee Turnover"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img class="project-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/bcf5e9e334a891fbf2c5756fa20309704bad6caf/turnover_powerbi-ANIMATION.gif?raw=true" alt="Turnover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="project-thumb-placeholder" style="display:none"><div class="thumb-icon">👥</div></div>
           <div class="project-body">
             <p class="project-category">HR · Power BI</p>
             <h3 class="project-name">Employee Turnover</h3>
-            <p class="project-desc">Turnover rates by department, age group, and tenure — delivering key insights to reduce resignations and improve retention.</p>
-            <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">Power BI</span>
-              </div>
-              <a href="https://drive.google.com/file/d/1qDPURrwNEkrySyMPUXCx95eWOA0jZsn3/view" target="_blank" class="project-link">
-                Download ↗
-              </a>
-            </div>
+            <p class="project-desc">Turnover rates by department, age, and tenure — key insights to improve retention.</p>
+            <div class="project-meta"><div class="project-tools"><span class="pill">Power BI</span></div><a href="https://drive.google.com/file/d/1qDPURrwNEkrySyMPUXCx95eWOA0jZsn3/view" target="_blank" class="project-link">Download ↗</a></div>
           </div>
         </div>
-
         <div class="project-card fade-up">
-          <img class="project-thumb"
-            src="https://github.com/ellenoda/data-analysis-portfolio/blob/e106ab24c3bfd3a8d7c17747773bee181659cc53/client-ANIMATION.gif?raw=true"
-            alt="Customer Segmentation"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img class="project-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/e106ab24c3bfd3a8d7c17747773bee181659cc53/client-ANIMATION.gif?raw=true" alt="Segmentation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="project-thumb-placeholder" style="display:none"><div class="thumb-icon">🧮</div></div>
           <div class="project-body">
             <p class="project-category">Marketing · Looker Studio</p>
             <h3 class="project-name">Customer Segmentation</h3>
-            <p class="project-desc">RFM analysis segmenting customers into Loyal, Potential, and At-Risk groups — enabling targeted retention strategies.</p>
-            <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">Looker Studio</span>
-                <span class="pill">Sheets</span>
-              </div>
-              <a href="https://lookerstudio.google.com/reporting/6a5294c0-8e8c-4d63-9d5e-de8e7b2b137b" target="_blank" class="project-link">
-                View ↗
-              </a>
-            </div>
+            <p class="project-desc">RFM analysis identifying Loyal, Potential, and At-Risk clients for targeted retention.</p>
+            <div class="project-meta"><div class="project-tools"><span class="pill">Looker Studio</span><span class="pill">Sheets</span></div><a href="https://lookerstudio.google.com/reporting/6a5294c0-8e8c-4d63-9d5e-de8e7b2b137b" target="_blank" class="project-link">View ↗</a></div>
           </div>
         </div>
-
         <div class="project-card fade-up">
-          <img class="project-thumb"
-            src="https://github.com/ellenoda/data-analysis-portfolio/blob/d2a9c28d48466d4551f5d8a95a4331dd2065cfb7/Spotify_ANIMATION.gif?raw=true"
-            alt="Spotify Analysis"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img class="project-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/d2a9c28d48466d4551f5d8a95a4331dd2065cfb7/Spotify_ANIMATION.gif?raw=true" alt="Spotify" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="project-thumb-placeholder" style="display:none"><div class="thumb-icon">🎧</div></div>
           <div class="project-body">
             <p class="project-category">Entertainment · BigQuery · Power BI</p>
             <h3 class="project-name">Spotify Streams Analysis</h3>
-            <p class="project-desc">How playlists, sound features (BPM, speechiness), and chart placements affect stream counts — strategic insights for labels and artists.</p>
-            <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">BigQuery</span>
-                <span class="pill">Power BI</span>
-              </div>
-              <a href="https://drive.google.com/file/d/1KTBauguz4EUViJuggFjAHwpwFezPweDB/view" target="_blank" class="project-link">
-                Download ↗
-              </a>
-            </div>
+            <p class="project-desc">How playlists and sound features affect stream counts — strategic insights for labels and artists.</p>
+            <div class="project-meta"><div class="project-tools"><span class="pill">BigQuery</span><span class="pill">Power BI</span></div><a href="https://drive.google.com/file/d/1KTBauguz4EUViJuggFjAHwpwFezPweDB/view" target="_blank" class="project-link">Download ↗</a></div>
           </div>
         </div>
-
         <div class="project-card fade-up">
           <div class="project-thumb-placeholder"><div class="thumb-icon">📊</div></div>
           <div class="project-body">
             <p class="project-category">Finance · BigQuery · Power BI</p>
             <h3 class="project-name">Credit Risk Prediction</h3>
-            <p class="project-desc">Logistic regression predicting customer default risk using salary, age, and payment history — high-accuracy model with easy-to-read risk profiles.</p>
+            <p class="project-desc">Logistic regression predicting customer default risk using salary, age, payment delays, and loans — dashboards showing risk profiles, correlations, and high accuracy F1-score.</p>
             <div class="project-meta">
-              <div class="project-tools">
-                <span class="pill">Python</span>
-                <span class="pill">BigQuery</span>
+              <div class="project-tools"><span class="pill">Python</span><span class="pill">BigQuery</span><span class="pill">Power BI</span></div>
+              <div style="display:flex;gap:0.75rem;">
+                <a href="https://drive.google.com/file/d/1_mSqgiacDOJN1LNnD485_6lDu0a2A_wS/view" target="_blank" class="project-link">Download ↗</a>
+                <a href="https://www.notion.so/Super-Caja-1eb5e85d154280be97efefa4b2f19250?pvs=4" target="_blank" class="project-link">Notion ↗</a>
               </div>
-              <a href="https://www.notion.so/Super-Caja-1eb5e85d154280be97efefa4b2f19250" target="_blank" class="project-link">
-                Details ↗
-              </a>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- PRESENTATIONS -->
+  <section id="presentations">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <p class="section-eyebrow">Presentations & Storytelling</p>
+        <h2 class="section-title">Data told as a <em>compelling story</em></h2>
+        <p class="section-subtitle">Beyond dashboards — I design corporate presentations, pitch decks, and visual narratives that communicate data with clarity and visual impact for B2B audiences.</p>
+      </div>
+
+      <div class="pres-services">
+        <div class="pres-service-card fade-up">
+          <img class="pres-cover" src="capa1.png" alt="BI cover" onerror="this.src='capa1_1.png'">
+          <div class="pres-service-body">
+            <p class="pres-service-tag">BI · Looker Studio · Power BI</p>
+            <h3 class="pres-service-title">Business Intelligence & Data Visualization</h3>
+            <p class="pres-service-desc">Corporate dashboard design with harmonious palettes, clear information hierarchy, and real-time data storytelling.</p>
+          </div>
+        </div>
+        <div class="pres-service-card fade-up">
+          <img class="pres-cover" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/presentation2%20(2)-ANIMATION.gif?raw=true" alt="Corporate Presentation" onerror="this.src='https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/presentatio%201%20-%20ANIMATION.png?raw=true'">
+          <div class="pres-service-body">
+            <p class="pres-service-tag">B2B · PowerPoint · Google Slides</p>
+            <h3 class="pres-service-title">Corporate Presentation Design</h3>
+            <p class="pres-service-desc">Clean, professional slide decks for B2B audiences — on-brand color systems, precise typography, and visual clarity.</p>
+          </div>
+        </div>
+        <div class="pres-service-card fade-up">
+          <img class="pres-cover" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/sales-ANIMATION.gif?raw=true" alt="Pitch Deck Storytelling" onerror="this.src='https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/spotify-ANIMATION.gif?raw=true'">
+          <div class="pres-service-body">
+            <p class="pres-service-tag">Pitch Deck · Storytelling · Storyboard</p>
+            <h3 class="pres-service-title">Creative Pitch Deck & Storytelling</h3>
+            <p class="pres-service-desc">Custom illustrated presentations and storyboards that transform complex ideas into narratives your audience remembers.</p>
+          </div>
+        </div>
+      </div>
+
+      <span class="gallery-label fade-up">Work Samples — click to enlarge</span>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-up" onclick="openLightbox(0)">
+          <img src="Dashboards1.png" alt="Dashboards">
+          <div class="gallery-overlay"><span class="gallery-caption">Dashboards — Power BI & Looker Studio</span></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openLightbox(1)">
+          <img src="Presentation2.png" alt="Presentation 2">
+          <div class="gallery-overlay"><span class="gallery-caption">B2B Presentation — FlavorWiki</span></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openLightbox(2)">
+          <img src="Presentation1.png" alt="Presentation 1">
+          <div class="gallery-overlay"><span class="gallery-caption">Presentation — SoulCode Workflow</span></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openLightbox(3)">
+          <img src="Sotrytelling.png" alt="Storytelling">
+          <div class="gallery-overlay"><span class="gallery-caption">Storytelling — Price Impact & Spotify</span></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openLightbox(4)">
+          <img src="capa1_1.png" alt="BI cover PT">
+          <div class="gallery-overlay"><span class="gallery-caption">BI / Data Visualization — Service Cover PT</span></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openLightbox(5)">
+          <img src="capa3_1.png" alt="Pitch deck PT">
+          <div class="gallery-overlay"><span class="gallery-caption">Pitch Deck Criativo — Service Cover PT</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">›</button>
+  </div>
+
   <section id="process">
     <div class="section-inner">
       <div class="section-header">
@@ -936,31 +449,15 @@
         <h2 class="section-title">A thoughtful <em>process</em> from data to decision</h2>
       </div>
       <div class="process-steps">
-        <div class="process-step fade-up">
-          <div class="process-step-title">Understand</div>
-          <p class="process-step-desc">I start by listening to your business goals and the decisions you need to make — before touching any data.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="process-step-title">Collect & Clean</div>
-          <p class="process-step-desc">Raw data gets structured, validated, and transformed into a reliable foundation ready for analysis.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="process-step-title">Analyse</div>
-          <p class="process-step-desc">I uncover patterns, trends, and outliers that answer your key questions using SQL, Python, or spreadsheet tools.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="process-step-title">Visualise</div>
-          <p class="process-step-desc">Findings are translated into polished dashboards or presentations — with careful attention to color harmony and visual clarity.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="process-step-title">Deliver</div>
-          <p class="process-step-desc">You receive a clean, documented deliverable with a walkthrough, ready to share with your team or clients.</p>
-        </div>
+        <div class="process-step fade-up"><div class="process-step-title">Understand</div><p class="process-step-desc">I start by listening to your business goals before touching any data or slides.</p></div>
+        <div class="process-step fade-up"><div class="process-step-title">Collect & Clean</div><p class="process-step-desc">Raw data gets structured and transformed into a reliable foundation for analysis.</p></div>
+        <div class="process-step fade-up"><div class="process-step-title">Analyse</div><p class="process-step-desc">I uncover patterns, trends, and insights using SQL, Python, or spreadsheet tools.</p></div>
+        <div class="process-step fade-up"><div class="process-step-title">Visualise</div><p class="process-step-desc">Findings become polished dashboards or presentations — with careful attention to color harmony and hierarchy.</p></div>
+        <div class="process-step fade-up"><div class="process-step-title">Deliver</div><p class="process-step-desc">You receive a clean, documented deliverable with a walkthrough, ready to share with your team.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-inner">
       <div class="about-grid">
@@ -976,8 +473,8 @@
           <h2>Analytical mind,<br><em>designer's eye</em></h2>
           <div class="divider"></div>
           <p>I'm a data analyst with a genuine passion for visual communication. I believe numbers are only as valuable as your ability to explain them — and that's where design thinking makes all the difference.</p>
-          <p>With a background spanning finance, HR, agriculture, and entertainment analytics, I bring a versatile perspective to every project. I work in both English and Portuguese, making me a strong partner for international businesses and Brazilian/Portuguese companies alike.</p>
-          <p>My work on the Behance reflects what I care most about: <strong>harmony between data and design</strong> — where the right palette, spacing, and typography make insights undeniable.</p>
+          <p>With a background spanning finance, HR, agriculture, and entertainment analytics, I bring a versatile perspective to every project. I work in both English and Portuguese, making me a strong partner for international and Brazilian/Portuguese companies.</p>
+          <p>My work reflects what I care most about: <strong>harmony between data and design</strong> — where the right palette, spacing, and typography make insights undeniable.</p>
           <div class="skills-list">
             <div class="skill-item"><span class="skill-dot"></span> Power BI</div>
             <div class="skill-item"><span class="skill-dot"></span> Looker Studio</div>
@@ -993,83 +490,58 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-text">
-        <p class="section-eyebrow" style="color: var(--accent-light);">Let's Work Together</p>
+        <p class="section-eyebrow" style="color:var(--accent-light);">Let's Work Together</p>
         <h2>Ready to make your <em>data shine?</em></h2>
         <p>Whether you need a dashboard, a presentation, or a full data pipeline — I'd love to hear about your project. I typically respond within 24 hours.</p>
         <div class="contact-links">
-          <a href="mailto:ellenoda@gmail.com" class="contact-link-row">
-            <span class="contact-link-icon">✉️</span>
-            <span class="contact-link-label">ellenoda@gmail.com</span>
-            <span class="contact-link-sub">Email</span>
-          </a>
-          <a href="https://www.linkedin.com/in/ellen-noda" target="_blank" class="contact-link-row">
-            <span class="contact-link-icon">💼</span>
-            <span class="contact-link-label">linkedin.com/in/ellen-noda</span>
-            <span class="contact-link-sub">LinkedIn</span>
-          </a>
-          <a href="https://www.behance.net/ellenoda" target="_blank" class="contact-link-row">
-            <span class="contact-link-icon">🎨</span>
-            <span class="contact-link-label">behance.net/ellenoda</span>
-            <span class="contact-link-sub">Behance</span>
-          </a>
-          <a href="https://www.upwork.com/freelancers/~010b216b696f79d6a0" target="_blank" class="contact-link-row">
-            <span class="contact-link-icon">🟩</span>
-            <span class="contact-link-label">Hire me on Upwork</span>
-            <span class="contact-link-sub">Upwork</span>
-          </a>
+          <a href="/cdn-cgi/l/email-protection#ddb8b1b1b8b3b2b9bc9dbab0bcb4b1f3beb2b0" class="contact-link-row"><span class="contact-link-icon">✉️</span><span class="contact-link-label"><span class="__cf_email__" data-cfemail="02676e6e676c6d666342656f636b6e2c616d6f">[email&#160;protected]</span></span><span class="contact-link-sub">Email</span></a>
+          <a href="https://www.linkedin.com/in/ellen-noda" target="_blank" class="contact-link-row"><span class="contact-link-icon">💼</span><span class="contact-link-label">linkedin.com/in/ellen-noda</span><span class="contact-link-sub">LinkedIn</span></a>
+          <a href="https://www.behance.net/ellenoda" target="_blank" class="contact-link-row"><span class="contact-link-icon">🎨</span><span class="contact-link-label">behance.net/ellenoda</span><span class="contact-link-sub">Behance</span></a>
+          <a href="https://www.upwork.com/freelancers/~010b216b696f79d6a0" target="_blank" class="contact-link-row"><span class="contact-link-icon">🟩</span><span class="contact-link-label">Hire me on Upwork</span><span class="contact-link-sub">Upwork</span></a>
         </div>
       </div>
-
       <div class="contact-form-area">
-        <div class="form-group">
-          <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="Jane Smith">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Company / Project</label>
-          <input type="text" class="form-input" placeholder="Acme Corp — Q3 Report">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="jane@company.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tell me about your project</label>
-          <textarea class="form-input" placeholder="What data do you have, what decisions do you need to make?"></textarea>
-        </div>
+        <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Jane Smith"></div>
+        <div class="form-group"><label class="form-label">Company / Project</label><input type="text" class="form-input" placeholder="Acme Corp — Q3 Report"></div>
+        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="jane@company.com"></div>
+        <div class="form-group"><label class="form-label">Tell me about your project</label><textarea class="form-input" placeholder="What data do you have, what decisions do you need to make?"></textarea></div>
         <button class="btn-form" onclick="alert('Thank you! I will get back to you within 24h.')">Send Message</button>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <a class="footer-logo" href="#">Ellen Noda</a>
     <span class="footer-copy">© 2025 Ellen Noda · Data Analyst · Braga, Portugal</span>
   </footer>
 
-  <script>
-    // Scroll-triggered fade-ups
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
+      entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Hero cards animate in on load
     setTimeout(() => {
       document.querySelectorAll('.hero-card-main, .hero-card-float').forEach((el, i) => {
         setTimeout(() => el.classList.add('visible'), i * 150);
       });
     }, 300);
-  </script>
-</body>
-</html>
+
+    const images = [
+      'Dashboards1.png','Presentation2.png','Presentation1.png',
+      'Sotrytelling.png','capa1_1.png','capa3_1.png'
+    ];
+    let currentIdx = 0;
+    function openLightbox(idx) {
+      currentIdx = idx;
+      document.getElementById('lightbox-img').src = images[idx];
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    function changeImage(dir) {
+      currentIdx = (currentIdx + dir + images.length) % images.length;
+      document.getElementById('lightbox-img').src = images[currentIdx];
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); }
