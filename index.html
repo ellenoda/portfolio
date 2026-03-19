@@ -20,14 +20,12 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,245,242,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem,5vw,4rem); height: 64px; }
     .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero { min-height: 100vh; display: flex; align-items: center; padding: 80px clamp(1.5rem,5vw,4rem) 0; max-width: 1280px; margin: 0 auto; }
     .hero-text { padding: 4rem 0; max-width: 640px; }
     .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
@@ -41,13 +39,11 @@
     .btn-outline { background: transparent; color: var(--ink); padding: 0.85rem 2rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; cursor: pointer; display: inline-block; }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* STATS */
     .stats-bar { background: var(--ink); padding: 2rem clamp(1.5rem,5vw,4rem); }
     .stats-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: space-between; align-items: center; }
     .stat-num { font-family: var(--serif); font-size: 2.4rem; color: var(--accent-light); line-height: 1; }
     .stat-lbl { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.3rem; }
 
-    /* SECTIONS */
     section { padding: clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem); }
     .wrap { max-width: 1280px; margin: 0 auto; }
     .sec-eye { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
@@ -58,7 +54,6 @@
     .divider { width: 36px; height: 2px; background: var(--accent); margin: 1.25rem 0; }
     .pill { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); background: var(--teal-light); padding: 0.22rem 0.6rem; border-radius: 999px; }
 
-    /* SERVICES */
     #services { background: var(--surface); }
     .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
     .svc-card { background: var(--surface); padding: 2.25rem; transition: background 0.25s; }
@@ -68,12 +63,10 @@
     .svc-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.7; font-weight: 300; }
     .svc-tools { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
-    /* CARDS (shared between dashboards and presentations) */
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.08); }
     .card-thumb { width: 100%; height: 190px; object-fit: cover; display: block; }
     .card-thumb-ph { width: 100%; height: 190px; background: linear-gradient(135deg, var(--accent-pale), var(--teal-light)); display: flex; align-items: center; justify-content: center; font-size: 2.25rem; }
-    .card-video { width: 100%; height: 190px; border: none; display: block; }
     .card-body { padding: 1.5rem; }
     .card-cat { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
     .card-name { font-family: var(--serif); font-size: 1.15rem; line-height: 1.25; margin-bottom: 0.55rem; }
@@ -84,16 +77,11 @@
     .card-link { font-size: 0.73rem; font-weight: 500; color: var(--accent); text-decoration: none; white-space: nowrap; transition: opacity 0.2s; }
     .card-link:hover { opacity: 0.7; }
 
-    /* GRID LAYOUTS */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .grid-1 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-
-    /* GROUP LABEL */
+    .grid-1 { margin-bottom: 1.5rem; }
     .group-label { font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: 1rem; margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
     .group-label em { font-style: italic; color: var(--accent); }
-    .group-label:first-of-type { margin-top: 0; }
 
-    /* PROCESS */
     #process { background: var(--bg); }
     .proc-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); counter-reset: step; }
     .proc-step { padding: 1.75rem; counter-increment: step; }
@@ -101,9 +89,8 @@
     .proc-title { font-family: var(--serif); font-size: 1.05rem; margin-bottom: 0.45rem; }
     .proc-desc { font-size: 0.83rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; }
 
-    /* ABOUT */
     #about { background: var(--surface); }
-    .about-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 3rem; align-items: center; }
+    .about-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 3rem; align-items: center; padding: 0 clamp(1.5rem,5vw,4rem); }
     .about-avatar { flex-shrink: 0; text-align: center; }
     .about-avatar img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-light); box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; }
     .about-avatar p { font-family: var(--serif); font-size: 1rem; margin-top: 0.75rem; color: var(--ink); }
@@ -115,7 +102,6 @@
     .sk { display: flex; align-items: center; gap: 0.55rem; font-size: 0.83rem; color: var(--ink-soft); }
     .sk-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-    /* CONTACT */
     #contact { background: var(--ink); }
     .contact-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem); }
     .ct-txt h2 { font-family: var(--serif); font-size: clamp(2.25rem,4vw,3.75rem); color: #fff; line-height: 1.1; margin-bottom: 1.25rem; }
@@ -157,7 +143,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Ellen N.</a>
   <ul class="nav-links">
@@ -169,7 +154,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-text">
     <p class="hero-eyebrow">Data Analyst · Visual Storyteller</p>
@@ -182,7 +166,6 @@
   </div>
 </div>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div><div class="stat-num">5+</div><div class="stat-lbl">Years of Experience</div></div>
@@ -193,7 +176,6 @@
   </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="wrap">
     <div class="sec-hdr">
@@ -230,7 +212,6 @@
   </div>
 </section>
 
-<!-- ALL WORK -->
 <section id="projects">
   <div class="wrap">
     <div class="sec-hdr">
@@ -240,7 +221,7 @@
       <div class="divider"></div>
     </div>
 
-    <!-- ROW 1: Finance + AgroFruits -->
+    <!-- Finance + AgroFruits -->
     <div class="grid-2 fu">
       <div class="card">
         <img class="card-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/c7903a7285a7cbfb255ce0643de80ba85454e099/finance-ANIMATION.gif?raw=true" alt="Finance Dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -270,7 +251,7 @@
       </div>
     </div>
 
-    <!-- ROW 2: Turnover + Customer Segmentation -->
+    <!-- Turnover + Customer Segmentation -->
     <div class="grid-2 fu">
       <div class="card">
         <img class="card-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/bcf5e9e334a891fbf2c5756fa20309704bad6caf/turnover_powerbi-ANIMATION.gif?raw=true" alt="Turnover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -286,7 +267,7 @@
         </div>
       </div>
       <div class="card">
-        <img class="card-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/e106ab24c3bfd3a8d7c17747773bee181659cc53/client-ANIMATION.gif?raw=true" alt="Client Segmentation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="card-thumb" src="https://github.com/ellenoda/data-analysis-portfolio/blob/e106ab24c3bfd3a8d7c17747773bee181659cc53/client-ANIMATION.gif?raw=true" alt="Customer Segmentation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-thumb-ph" style="display:none">🧮</div>
         <div class="card-body">
           <p class="card-cat">Marketing · Looker Studio</p>
@@ -300,10 +281,10 @@
       </div>
     </div>
 
-    <!-- ROW 3: Credit Risk (full width) -->
+    <!-- Credit Risk — full width with video -->
     <div class="grid-1 fu">
-      <div class="card" style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
-        <iframe class="card-video" src="https://www.youtube.com/embed/UwN2WXhu9hc" title="Credit Analysis EN" allowfullscreen style="height:100%;min-height:240px;"></iframe>
+      <div class="card" style="display:grid;grid-template-columns:1fr 1fr;">
+        <iframe src="https://www.youtube.com/embed/UwN2WXhu9hc" title="Credit Analysis EN" allowfullscreen style="width:100%;height:260px;border:none;display:block;"></iframe>
         <div class="card-body" style="display:flex;flex-direction:column;justify-content:center;">
           <p class="card-cat">Finance · BigQuery · Power BI</p>
           <h3 class="card-name">Credit Risk Prediction</h3>
@@ -319,11 +300,11 @@
       </div>
     </div>
 
-    <!-- ROW 4: Corporate Presentation (2 cards) -->
+    <!-- Corporate Presentation -->
     <h3 class="group-label fu">Corporate Presentation <em>Design</em></h3>
     <div class="grid-2 fu">
       <div class="card">
-        <img class="card-thumb" src="https://ellenoda.github.io/files/presentation2%20(2)-ANIMATION.gif" alt="Corporate Presentation 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="card-thumb" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/presentation2%20(2)-ANIMATION.gif?raw=true" alt="Corporate Presentation 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-thumb-ph" style="display:none">🎨</div>
         <div class="card-body">
           <p class="card-cat">B2B · PowerPoint · Google Slides</p>
@@ -332,7 +313,7 @@
         </div>
       </div>
       <div class="card">
-        <img class="card-thumb" src="https://ellenoda.github.io/files/presentatio%201%20-%20ANIMATION.png" alt="Corporate Presentation 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="card-thumb" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/presentatio%201%20-%20ANIMATION.png?raw=true" alt="Corporate Presentation 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-thumb-ph" style="display:none">🎨</div>
         <div class="card-body">
           <p class="card-cat">B2B · PowerPoint · Google Slides</p>
@@ -342,11 +323,11 @@
       </div>
     </div>
 
-    <!-- ROW 5: Creative Pitch Deck (2 cards) -->
+    <!-- Creative Pitch Deck -->
     <h3 class="group-label fu">Creative Pitch Deck <em>&amp; Storytelling</em></h3>
     <div class="grid-2 fu">
       <div class="card">
-        <img class="card-thumb" src="https://ellenoda.github.io/files/sales-ANIMATION.gif" alt="Pitch Deck 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="card-thumb" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/sales-ANIMATION.gif?raw=true" alt="Pitch Deck 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-thumb-ph" style="display:none">📖</div>
         <div class="card-body">
           <p class="card-cat">Pitch Deck · Storytelling · Storyboard</p>
@@ -355,7 +336,7 @@
         </div>
       </div>
       <div class="card">
-        <img class="card-thumb" src="https://ellenoda.github.io/files/spotify-ANIMATION.gif" alt="Pitch Deck 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="card-thumb" src="https://github.com/ellenoda/files/blob/8363b7894e0afa9a94bd6b0fd12612cf71bdaf1c/spotify-ANIMATION.gif?raw=true" alt="Pitch Deck 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-thumb-ph" style="display:none">📖</div>
         <div class="card-body">
           <p class="card-cat">Pitch Deck · Storytelling · Storyboard</p>
@@ -368,7 +349,6 @@
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process">
   <div class="wrap">
     <div class="sec-hdr">
@@ -385,11 +365,10 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
     <div class="about-avatar fu">
-      <img src="https://ellenoda.github.io/files/ellen-avatar.png" alt="Ellen N." onerror="this.style.display='none'">
+      <img src="https://github.com/ellenoda/files/blob/e72ebcb4a124d56256aa8e1ee742a0016986aaba/ellen-avatar.png?raw=true" alt="Ellen N." onerror="this.style.display='none'">
       <p>Ellen N.</p>
       <span>Data Analyst · Braga, Portugal</span>
     </div>
@@ -414,16 +393,15 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" style="padding:0;background:var(--ink);">
+<section id="contact" style="padding:0;">
   <div class="contact-inner">
     <div class="ct-txt">
       <p class="sec-eye" style="color:var(--accent-light);">Let's Work Together</p>
       <h2>Ready to make your <em>data shine?</em></h2>
       <p>Whether you need a dashboard, a presentation, or a full data pipeline — I'd love to hear about your project. I typically respond within 24 hours.</p>
       <div class="ct-links">
-        <a href="/cdn-cgi/l/email-protection#4d282121282322292c0d2a202c2421632e2220" class="ct-link">
-          <span>✉️</span><span style="font-weight:500"><span class="__cf_email__" data-cfemail="37525b5b525958535677505a565e5b1954585a">[email&#160;protected]</span></span><span class="ct-link-sub">Email</span>
+        <a href="mailto:ellenoda@gmail.com" class="ct-link">
+          <span>✉️</span><span style="font-weight:500">ellenoda@gmail.com</span><span class="ct-link-sub">Email</span>
         </a>
         <a href="https://www.behance.net/ellenoda" target="_blank" class="ct-link">
           <span>🎨</span><span style="font-weight:500">behance.net/ellenoda</span><span class="ct-link-sub">Behance</span>
@@ -448,4 +426,9 @@
   <span class="f-copy">© 2025 Ellen N. · Data Analyst · Braga, Portugal</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
